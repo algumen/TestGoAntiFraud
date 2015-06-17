@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.LoginPage;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -28,7 +29,7 @@ public class TestCorrectEnter {
         driver.get(baseUrl + "/manager/login/");
         LoginPage.typeUsername("tt");
 
-
+        Assert.assertTrue(isElementPresent(By.xpath(".//*[@id='toolbar-profile']/span[contains(text(),'tt')]")));
     }
 
 
