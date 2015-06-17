@@ -1,5 +1,8 @@
 package Pages;
 //http://kreisfahrer.gitbooks.io/selenium-webdriver/content/webdriver_intro/osnovnie_metodi_selenium_webdriver_api.html
+//https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/By.html
+//https://code.google.com/p/selenium/wiki/PageObjects
+//https://github.com/angular/protractor/blob/master/docs/page-objects.md
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
