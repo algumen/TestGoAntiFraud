@@ -1,5 +1,5 @@
 package Pages;
-
+//http://kreisfahrer.gitbooks.io/selenium-webdriver/content/webdriver_intro/osnovnie_metodi_selenium_webdriver_api.html
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
