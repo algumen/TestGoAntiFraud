@@ -41,14 +41,4 @@ public class LoginPage {
         driver.findElement(forgotPassLink).click();
         return new LoginPage(driver);
     }
-
-    public boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
 }
