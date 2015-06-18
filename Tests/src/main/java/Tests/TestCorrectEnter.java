@@ -1,17 +1,14 @@
 package Tests;
 
 import Pages.LoginPage;
-import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.After;
+import org.junit.Assert;
 import org.openqa.selenium.By;
-
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TestCorrectEnter {
