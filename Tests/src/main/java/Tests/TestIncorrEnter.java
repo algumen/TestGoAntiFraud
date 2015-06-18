@@ -1,20 +1,21 @@
 package Tests;
 
 import Pages.LoginPage;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class TestCorrectEnter {
+import java.util.concurrent.TimeUnit;
+
+public class TestIncorrEnter {
 
     private WebDriver driver;
-    private final String username = "tt";
+    private final String username = "ttt";
     private final String password = "123456";
 
     private boolean isElementPresent(By by) {
@@ -38,12 +39,13 @@ public class TestCorrectEnter {
         driver.get("https://goantifraud.com/manager/");
 
         LoginPage login = new LoginPage(driver);
-        login.loginAs(username,password);
+        login.loginAs(username, password);
 
-        Assert.assertTrue(isElementPresent(By.xpath(".//*[@id='toolbar-profile']/span[contains(text(),'tt')]")));
+        Assert.assertTrue(isElementPresent(By.xpath(".//*/div[contains(text(),'Login or password is incorrect')]")));
     }
+
     @After
     public void tearDown() throws Exception {
-          driver.quit();
+        driver.quit();
     }
 }

@@ -1,6 +1,7 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
@@ -37,10 +38,17 @@ public class LoginPage {
         return clickLogin();
     }
 
-    public LoginPage clickforgotPassLink() {
+        public LoginPage clickforgotPassLink() {
         driver.findElement(forgotPassLink).click();
         return new LoginPage(driver);
     }
-
+    public boolean isElementPresent(By by) {
+        try {
+            driver.findElement(by);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
 
 }
