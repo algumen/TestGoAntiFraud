@@ -16,10 +16,9 @@ public class LoginPage {
         this.driver = driver;
     }
 
-
     public LoginPage typeUsername(String username) {
-        driver.findElement(usernameLocator).sendKeys(username);
-        return this;
+    driver.findElement(usernameLocator).sendKeys(username);
+    return this;
     }
 
     public LoginPage typePassword(String password) {
