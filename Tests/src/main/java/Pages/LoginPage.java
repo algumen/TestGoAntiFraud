@@ -7,6 +7,7 @@ public class LoginPage {
     By usernameLocator = By.id("login");
     By passwordLocator = By.id("password");
     By loginButtonLocator = By.id("submit_btn");
+    By forgotPassLink = By.linkText("Forgot your password?");
 
     private final WebDriver driver;
 
@@ -35,5 +36,11 @@ public class LoginPage {
         typePassword(password);
         return clickLogin();
     }
+
+    public LoginPage clickforgotPassLink() {
+        driver.findElement(forgotPassLink).click();
+        return new LoginPage(driver);
+    }
+
 
 }
