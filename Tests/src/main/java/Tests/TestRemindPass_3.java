@@ -1,21 +1,23 @@
 package Tests;
 
 import Pages.LoginPage;
-import org.junit.Before;
-import org.junit.Test;
+import Pages.RemindPage;
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class TestCorrectEnter {
+import java.util.concurrent.TimeUnit;
+
+public class TestRemindPass_3 {
+
+    private final String username = "tt";
 
     private WebDriver driver;
-    private final String username = "tt";
-    private final String password = "123456";
 
     private boolean isElementPresent(By by) {
         try {
@@ -37,13 +39,21 @@ public class TestCorrectEnter {
     public void testCorrectLogin() throws Exception {
         driver.get("https://goantifraud.com/manager/");
 
-        LoginPage login = new LoginPage(driver);
-        login.loginAs(username,password);
+        LoginPage forgotPass = new LoginPage(driver);
+        forgotPass.clickforgotPassLink();
 
-        Assert.assertTrue(isElementPresent(By.xpath(".//*[@id='toolbar-profile']/span[contains(text(),'tt')]")));
+        RemindPage login = new RemindPage(driver);
+        login.typeIdEmail(username);
+
+        RemindPage clicksend = new RemindPage(driver);
+        clicksend.clickSend();
+
+
+        Assert.assertTrue(isElementPresent(By.xpath(".//*[@id='registration']//h2[contains(text(),'Please, enter the captcha here:')]")));
     }
+
     @After
     public void tearDown() throws Exception {
-          driver.quit();
+        driver.quit();
     }
 }

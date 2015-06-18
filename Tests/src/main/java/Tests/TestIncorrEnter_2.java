@@ -1,7 +1,6 @@
 package Tests;
 
 import Pages.LoginPage;
-import Pages.RemindPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,11 +12,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestIncorrLogPassRemind {
-
-    private final String idEmail = "ttt";
+public class TestIncorrEnter_2 {
 
     private WebDriver driver;
+    private final String username = "ttt";
+    private final String password = "123456";
 
     private boolean isElementPresent(By by) {
         try {
@@ -39,15 +38,10 @@ public class TestIncorrLogPassRemind {
     public void testCorrectLogin() throws Exception {
         driver.get("https://goantifraud.com/manager/");
 
-        LoginPage forgotPass = new LoginPage(driver);
-        forgotPass.clickforgotPassLink();
+        LoginPage login = new LoginPage(driver);
+        login.loginAs(username, password);
 
-        RemindPage idemail = new RemindPage(driver);
-        idemail.typeIdEmail(idEmail);
-
-        forgotPass.clickforgotPassLink();
-
-        Assert.assertTrue(isElementPresent(By.xpath(".//*/div[contains(text(),'Username is not exist')]")));
+        Assert.assertTrue(isElementPresent(By.xpath(".//*/div[contains(text(),'Login or password is incorrect')]")));
     }
 
     @After
