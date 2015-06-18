@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public class RemindPage {
 
-    By idEmailLocator = By.linkText("id_email");
-    By loginButtonLocator = By.id("submit_btn");
+    By idEmailLocator = By.id("id_email");
+    By sendButtonLocator = By.id("submit_btn");
 
 
     private final WebDriver driver;
@@ -17,13 +17,13 @@ public class RemindPage {
 
 
 
-    public RemindPage typeIdEmail(String password) {
-        driver.findElement(idEmailLocator).sendKeys(password);
+    public RemindPage typeIdEmail(String idemail) {
+        driver.findElement(idEmailLocator).sendKeys(idemail);
         return this;
     }
 
     public RemindPage clickSend() {
-        driver.findElement(loginButtonLocator).click();
+        driver.findElement(sendButtonLocator).click();
         return new RemindPage(driver);
     }
 

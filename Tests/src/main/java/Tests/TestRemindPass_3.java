@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TestRemindPass_3 {
 
-    private final String username = "tt";
+    private final String idemail = "tt";
 
     private WebDriver driver;
 
@@ -42,14 +42,14 @@ public class TestRemindPass_3 {
         LoginPage forgotPass = new LoginPage(driver);
         forgotPass.clickforgotPassLink();
 
-        RemindPage login = new RemindPage(driver);
-        login.typeIdEmail(username);
+        RemindPage enterIdEmail = new RemindPage(driver);
+        enterIdEmail.typeIdEmail(idemail);
 
         RemindPage clicksend = new RemindPage(driver);
         clicksend.clickSend();
 
 
-        Assert.assertTrue(isElementPresent(By.xpath(".//*[@id='registration']//h2[contains(text(),'Please, enter the captcha here:')]")));
+        Assert.assertTrue(isElementPresent(By.cssSelector("#captcha_1_err")));
     }
 
     @After
