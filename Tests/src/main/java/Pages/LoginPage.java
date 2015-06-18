@@ -17,8 +17,8 @@ public class LoginPage {
     }
 
     public LoginPage typeUsername(String username) {
-    driver.findElement(usernameLocator).sendKeys(username);
-    return this;
+        driver.findElement(usernameLocator).sendKeys(username);
+        return this;
     }
 
     public LoginPage typePassword(String password) {
@@ -37,10 +37,11 @@ public class LoginPage {
         return clickLogin();
     }
 
-        public LoginPage clickforgotPassLink() {
+    public LoginPage clickforgotPassLink() {
         driver.findElement(forgotPassLink).click();
         return new LoginPage(driver);
     }
+
     public boolean isElementPresent(By by) {
         try {
             driver.findElement(by);

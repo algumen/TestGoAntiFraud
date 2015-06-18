@@ -1,7 +1,7 @@
 package Tests;
 
 import Pages.LoginPage;
-import Pages.RemindPage;
+//import Pages.RemindPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,9 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestIncorrLogPassRemind_4 {
+public class Bad {
 
-    private final String idemail = "ttt";
+    private final String idEmail = "ttt";
 
     private WebDriver driver;
 
@@ -42,12 +42,10 @@ public class TestIncorrLogPassRemind_4 {
         LoginPage forgotPass = new LoginPage(driver);
         forgotPass.clickforgotPassLink();
 
-        RemindPage enterIdEmail = new RemindPage(driver);
-        enterIdEmail.typeIdEmail(idemail);
+//        RemindPage idemail = new RemindPage(driver);
+//        idemail.typeIdEmail(idEmail);
 
-        RemindPage clicksend = new RemindPage(driver);
-        clicksend.clickSend();
-
+        forgotPass.clickforgotPassLink();
 
         Assert.assertTrue(isElementPresent(By.xpath(".//*/div[contains(text(),'Username is not exist')]")));
     }

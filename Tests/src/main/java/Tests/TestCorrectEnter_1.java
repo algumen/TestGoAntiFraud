@@ -6,7 +6,9 @@ import org.junit.Test;
 import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -38,12 +40,13 @@ public class TestCorrectEnter_1 {
         driver.get("https://goantifraud.com/manager/");
 
         LoginPage login = new LoginPage(driver);
-        login.loginAs(username,password);
+        login.loginAs(username, password);
 
         Assert.assertTrue(isElementPresent(By.xpath(".//*[@id='toolbar-profile']/span[contains(text(),'tt')]")));
     }
+
     @After
     public void tearDown() throws Exception {
-          driver.quit();
+        driver.quit();
     }
 }
