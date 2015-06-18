@@ -13,47 +13,21 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class TestIncorrLogPassRemind_4 {
+public class TestIncorrLogPassRemind_4 extends AbstractTest{
 
     private final String idemail = "ttt";
 
-    private WebDriver driver;
-
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    @Before
-    public void setUp() throws Exception {
-        driver = new FirefoxDriver();
-
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
-
     @Test
     public void testCorrectLogin() throws Exception {
-        driver.get("https://goantifraud.com/manager/");
+        getDriver().get("https://goantifraud.com/manager/");
 
-        LoginPage forgotPass = new LoginPage(driver);
-        forgotPass.clickforgotPassLink();
+        LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.clickforgotPassLink();
 
-        RemindPage enterIdEmail = new RemindPage(driver);
-        enterIdEmail.typeIdEmail(idemail);
-
-        RemindPage clicksend = new RemindPage(driver);
-        clicksend.clickSend();
-
+        RemindPage remindPage = new RemindPage(getDriver());
+        remindPage.typeIdEmail(idemail);
+        remindPage.clickSend();
 
         Assert.assertTrue(isElementPresent(By.xpath(".//*/div[contains(text(),'Username is not exist')]")));
-    }
-
-    @After
-    public void tearDown() throws Exception {
-        driver.quit();
     }
 }
